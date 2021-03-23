@@ -42,6 +42,7 @@ stage = 0
 top_contrib = dict()
 
 
+
 while not stop:
 
 	stage += 500
@@ -84,13 +85,15 @@ while not stop:
 			c_pos = i.find("strong",{"class":"mw-plusminus-pos"})
 			c_neg = i.find("strong",{"class":"mw-plusminus-neg"})
 		
+		
 
 
 		#print(c_neg.text)
 		if c_neg :
 			c_pts = c_neg.text.replace("−","-")
+			#print(c_pts)
 		elif c_pos:
-			print(c_pos.text)
+			#print(c_pos.text)
 			c_pts = c_pos.text
 		else:
 			continue
@@ -99,11 +102,21 @@ while not stop:
 		#print(c_user.text)
 		#print(c_byte["data-mw-bytes"])
 		if c_user.text not in top_contrib:
-			top_contrib[c_user.text] = int(c_pts)			
+			top_contrib[c_user.text] = int(c_pts)
+			#print(c_pts)
+			#print(int(c_pts))
+			print(str(c_user.text) +" : "+str(top_contrib[c_user.text]))			
 		else:
+			old = top_contrib[c_user.text]
 			top_contrib[c_user.text] += int(c_pts)
-
+			print(str(c_user.text) +" : "+str(int(c_pts))+" ["+str(old)+"->"+str(top_contrib[c_user.text])+"]")
 		
+
+		links = i.find("span",{"class":"mw-history-histlinks"})
+		links = links.findAll("a")
+		if len(links) == 2:
+			print(baseurl+str(links[1].attrs["href"]))
+			print()
 
 	parsed = urlparse.urlparse(url)
 	try:

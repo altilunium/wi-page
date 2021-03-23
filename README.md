@@ -5,5 +5,5 @@ Rank Wikipedia Article's Contributors by Byte Counts.
 `python3 wpage.py WikipediaArticleTitle` (id.wikipedia)\
 `python3 wpage.py WikipediaArticleTitle en`(en.wikipedia)
 
-## 
+## Screenshot
 ![Screenshot2](https://github.com/altilunium/wpage/blob/main/wpage-sc1.png)

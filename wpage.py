@@ -77,12 +77,33 @@ while not stop:
 			continue
 
 		c_byte = i.find("span",{"class":"mw-diff-bytes","data-mw-bytes":True})
+		c_pos = i.find("span",{"class":"mw-plusminus-pos"})
+		c_neg = i.find("span",{"class":"mw-plusminus-neg"})
+		c_pts = 0
+		if c_pos is None and c_neg is None:
+			c_pos = i.find("strong",{"class":"mw-plusminus-pos"})
+			c_neg = i.find("strong",{"class":"mw-plusminus-neg"})
+		
+
+
+		#print(c_neg.text)
+		if c_neg :
+			c_pts = c_neg.text.replace("−","-")
+		elif c_pos:
+			print(c_pos.text)
+			c_pts = c_pos.text
+		else:
+			continue
+		c_pts = c_pts.replace(",","")
+
 		#print(c_user.text)
 		#print(c_byte["data-mw-bytes"])
 		if c_user.text not in top_contrib:
-			top_contrib[c_user.text] = int(c_byte["data-mw-bytes"])
+			top_contrib[c_user.text] = int(c_pts)			
 		else:
-			top_contrib[c_user.text] += int(c_byte["data-mw-bytes"])
+			top_contrib[c_user.text] += int(c_pts)
+
+		
 
 	parsed = urlparse.urlparse(url)
 	try:

@@ -25,10 +25,12 @@ if subwiki == 'en':
 	#url = "https://en.wikipedia.org/w/index.php?title=Special:Contributions/"+str(uname)+"&dir=prev&target=GeoWriter"
 	url ="https://en.wikipedia.org/w/index.php?title="+str(pname)+"&dir=prev&action=history"
 	baseurl = "https://en.wikipedia.org"
+	lang = 'en'
 else:
 	#url = "https://id.wikipedia.org/w/index.php?title=Istimewa:Kontribusi_pengguna/"+str(uname)+"&dir=prev&limit=500"
 	url = "https://id.wikipedia.org/w/index.php?title="+str(pname)+"&dir=prev&action=history"
 	baseurl = "https://id.wikipedia.org"
+	lang = 'id'
 
 
 
@@ -97,7 +99,12 @@ while not stop:
 			c_pts = c_pos.text
 		else:
 			continue
-		c_pts = c_pts.replace(",","")
+
+		if lang == 'en':
+			c_pts = c_pts.replace(",","")
+		else:
+			c_pts = c_pts.replace(".","")
+
 
 		#print(c_user.text)
 		#print(c_byte["data-mw-bytes"])

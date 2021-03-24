@@ -1,4 +1,4 @@
-# wpage
+# wi-page
 Rank Wikipedia Article's Contributors by Byte Counts.
 
 ## How To Use

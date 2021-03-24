@@ -7,3 +7,4 @@ Rank Wikipedia Article's Contributors by Byte Counts.
 
 ## Screenshot
 ![Screenshot2](https://github.com/altilunium/wpage/blob/main/wpage-sc1.png)
+![Screenshot3](https://github.com/altilunium/wi-page/blob/main/wi-page-sc2.png)

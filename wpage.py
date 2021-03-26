@@ -4,6 +4,7 @@ import requests
 import urllib.parse as urlparse
 from urllib.parse import parse_qs
 import datetime
+import lxml
 
 
 def sizeof_fmt(num, suffix='B'):
@@ -16,6 +17,10 @@ def sizeof_fmt(num, suffix='B'):
 
 
 pname = sys.argv[1]
+if pname == "-i":
+	pname = input("Enter Wikipedia Article Name : ")
+	subwiki = input("Enter Wikipedia Language (en/id) : ")
+
 try:
 	subwiki = sys.argv[2]
 except Exception as e:

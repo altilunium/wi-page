@@ -20,11 +20,11 @@ pname = sys.argv[1]
 if pname == "-i":
 	pname = input("Enter Wikipedia Article Name : ")
 	subwiki = input("Enter Wikipedia Language (en/id) : ")
-
-try:
-	subwiki = sys.argv[2]
-except Exception as e:
-	subwiki = 'id'
+else:
+	try:
+		subwiki = sys.argv[2]
+	except Exception as e:
+		subwiki = 'id'
 
 if subwiki == 'en':
 	#url = "https://en.wikipedia.org/w/index.php?title=Special:Contributions/"+str(uname)+"&dir=prev&target=GeoWriter"
